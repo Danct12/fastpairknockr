@@ -1,7 +1,7 @@
 /*
  * ESP32 Fast Pair Knockr by Danct12
  * 
- * based on work by Willy-JL, Spooks4576 ,xAstroBoy, Spooks4576, DiamondRoPlayz (and others)
+ * based on work by Willy-JL, Spooks4576, xAstroBoy, Spooks4576, DiamondRoPlayz (and others)
  * from Xtreme-Firmware: https://github.com/Flipper-XFW/Xtreme-Firmware
  *
  * SPDX-License-Identifier: GPL-3.0
