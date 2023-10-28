@@ -1,5 +1,5 @@
 /*
- * FastFairKnockr by Danct12
+ * ESP32 Fast Pair Knockr by Danct12
  * 
  * based on work by Willy-JL, Spooks4576 ,xAstroBoy, Spooks4576, DiamondRoPlayz (and others)
  * from Xtreme-Firmware: https://github.com/Flipper-XFW/Xtreme-Firmware
@@ -260,11 +260,11 @@ uint8_t bt_packets[14] = {
     0x00              // -100 to +20 dBm (will be filled later)
 };
 
-static const char* TAG = "FastFairKnockr";
+static const char* TAG = "FastPairKnockr";
 
 void app_main(void)
 {
-    printf("ESP32 Fast Fair Knockr by Danct12\n");
+    printf("ESP32 Fast Pair Knockr by Danct12\n");
     printf("based on work by Willy-JL, Spooks4576 ,xAstroBoy, Spooks4576, DiamondRoPlayz (and others)\nfrom Xtreme-Firmware: https://github.com/Flipper-XFW/Xtreme-Firmware\n\n");
     printf("IRC: irc.oftc.net - #postmarketos-offtopic - Port: 6667 / 6697 (TLS)\n");
 
