@@ -25,7 +25,7 @@
 //#define DEBUG_DEVICES_ONLY
 
 // Delay (can be changed to however you like)
-#define DELAY_SECONDS 1
+#define DELAY_SECONDS 0.2
 
 esp_ble_adv_params_t ble_params = {
     .adv_int_min        = 0x20,
@@ -268,7 +268,7 @@ void app_main(void)
     printf("based on work by Willy-JL, Spooks4576 ,xAstroBoy, Spooks4576, DiamondRoPlayz (and others)\nfrom Xtreme-Firmware: https://github.com/Flipper-XFW/Xtreme-Firmware\n\n");
     printf("IRC: irc.oftc.net - #postmarketos-offtopic - Port: 6667 / 6697 (TLS)\n");
 
-    printf("Initializing BLE stack..\n");
+    ESP_LOGI(TAG, "Initializing BLE stack..\n");
     
     ESP_ERROR_CHECK(nvs_flash_init());
     esp_bt_controller_mem_release(ESP_BT_MODE_CLASSIC_BT);
@@ -279,7 +279,7 @@ void app_main(void)
     ESP_ERROR_CHECK(esp_bluedroid_init());
     ESP_ERROR_CHECK(esp_bluedroid_enable());
     
-    printf("Done. GO GO GO.\n");
+    ESP_LOGI(TAG, "Done. GO GO GO.\n");
     
     while (true) {
         for (int i = 0; i < 6; i++){
