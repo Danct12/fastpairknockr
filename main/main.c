@@ -33,10 +33,10 @@ esp_ble_adv_params_t ble_params = {
     .adv_type           = ADV_TYPE_IND,
     .own_addr_type      = BLE_ADDR_TYPE_RANDOM,
     .channel_map        = ADV_CHNL_ALL,
-    .adv_filter_policy  = ADV_FILTER_ALLOW_SCAN_ANY_CON_ANY,
-    .peer_addr          = {0xFE, 0xED, 0xC0, 0xFF, 0xEE, 0x69},
-    .peer_addr_type     = BLE_ADDR_TYPE_PUBLIC
+    .adv_filter_policy  = ADV_FILTER_ALLOW_SCAN_ANY_CON_ANY
 };
+
+uint8_t bt_addr[6] = {0xFE, 0xED, 0xC0, 0xFF, 0xEE, 0x69};
 
 const uint32_t models[] = {
 #ifdef DEBUG_DEVICES_ONLY
@@ -283,15 +283,15 @@ void app_main(void)
     
     while (true) {
         for (int i = 0; i < 6; i++){
-            ble_params.peer_addr[i] = esp_random() % 256;
+            bt_addr[i] = esp_random() % 256;
             
             if (i == 0){
-                ble_params.peer_addr[i] |= 0xF0;
+                bt_addr[i] |= 0xF0;
             }
         }
         ESP_LOGD(TAG, "BT_ADDR: %02X:%02X:%02X:%02X:%02X:%02X",
-                ble_params.peer_addr[0], ble_params.peer_addr[1], ble_params.peer_addr[2], ble_params.peer_addr[3], ble_params.peer_addr[4], ble_params.peer_addr[5]);
-        ESP_ERROR_CHECK(esp_ble_gap_set_rand_addr(ble_params.peer_addr));
+                bt_addr[0], bt_addr[1], bt_addr[2], bt_addr[3], bt_addr[4], bt_addr[5]);
+        ESP_ERROR_CHECK(esp_ble_gap_set_rand_addr(bt_addr));
         int index = esp_random() % (sizeof(models) / sizeof(models[0]));
 
         bt_packets[8]  = (models[index] >> 0x10) & 0xFF;
