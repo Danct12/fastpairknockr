@@ -307,7 +307,7 @@ void app_main(void)
                 bt_packets[12], bt_packets[13]);
         ESP_LOGD(TAG, "End.");
 
-        ESP_ERROR_CHECK(esp_ble_gap_config_adv_data_raw(bt_packets, 11));
+        ESP_ERROR_CHECK(esp_ble_gap_config_adv_data_raw(bt_packets, 14));
         ESP_LOGI(TAG, "Sending advertisement packets...");
         ESP_ERROR_CHECK(esp_ble_gap_start_advertising(&ble_params));
         vTaskDelay((DELAY_SECONDS * 1000) / portTICK_PERIOD_MS);
